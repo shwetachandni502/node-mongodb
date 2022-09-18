@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
-exports.getUserById = (req, res, next, id) => {
-  User.findById(id).exec((err, user) => {
+exports.getUserById = async (req, res, next, id) => {
+  User.findOne({id}).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
         error: "No user found in DB",
@@ -24,6 +24,7 @@ exports.getUser = async (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
+  console.log('req.profile from update data -->', req.profile)
   User.findByIdAndUpdate(
     { _id: req.profile._id },
     { $set: req.body },
@@ -34,8 +35,11 @@ exports.updateUser = (req, res) => {
           error: "You are not authorized to update this user",
         });
       }
-      User.password = undefined;
-      res.status(200).json({ user: user });
+      res.status(200).json({
+        user,
+        message: 'User data updated successfully',
+        success: true
+      });
     }
   );
 };
