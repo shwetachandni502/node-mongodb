@@ -13,13 +13,10 @@ exports.getUserById = async (req, res, next, id) => {
 };
 
 exports.getUser = async (req, res) => {
-  // req.profile.password = undefined;
-  // req.profile.createdAt = undefined;
-  // req.profile.updatedAt = undefined;
   const users = await User.find();
   res.status(200).json({
     users,
-    message: 'user list'
+    message: 'user list get success'
   });
 };
 

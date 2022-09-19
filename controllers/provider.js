@@ -25,3 +25,13 @@ exports.createProvider = async (req, res) => {
     });
   });
 }
+
+exports.getProvider = async (req, res) => {
+  const providers = await Provider.find()
+  
+  res.status(200).json({
+    providers,
+    success: 'Provider get successfully',
+    success: true
+  });
+}
