@@ -28,6 +28,19 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(
+  '/api-docs',
+  swaggerUi.serve, 
+  swaggerUi.setup(swaggerDocument)
+);
+
+app.get('/test', (req, res) => {
+  res.json({
+    status: 200,
+    message: 'Test call in swagger'
+  })
+})
+
 app.use("/api", allRoutes);
 
 // catch 404 and forward to error handler
@@ -49,13 +62,7 @@ app.use(function(err, req, res, next) {
 //PORT
 const port = process.env.PORT || 4000;
 
-app.use(
-  '/api-docs',
-  swaggerUi.serve, 
-  swaggerUi.setup(swaggerDocument)
-);
-
 //Starting a server
 app.listen(port, () => {
-  console.log(`server is running at ${port}`);
+  console.log(`server is running at ${port} \nAPI documentation: http://localhost:4000/api-docs`);
 });

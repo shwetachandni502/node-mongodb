@@ -6,7 +6,7 @@ const checkAuth = require('../middleware/checkAuth');
 
 router.param("userId", getUserById);
 // router.get("/test/:userId", isSignedIn, isAuthenticated, getUser);
-router.get("/:userId", isSignedIn, checkAuth, getUser);
+router.get("/", isSignedIn, checkAuth, getUser);
 router.put("/:userId", isSignedIn, checkAuth, updateUser);
 
 module.exports = router;
