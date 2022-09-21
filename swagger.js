@@ -14,7 +14,7 @@ const doc = {
     produces: ['application/json'],
     tags: [
         {
-            "name": "User",
+            "name": "All APIs",
             "description": "Endpoints"
         }
     ],
@@ -35,26 +35,14 @@ const doc = {
         }
     },
     definitions: {
-        Parents: {
-            father: "Simon Doe",
-            mother: "Marie Doe"
-        },
         User: {
-            name: "Jhon Doe",
-            age: 29,
-            parents: {
-                $ref: '#/definitions/Parents'
-            },
+            email: "test@gmail.com",
+            password: 'password',
         },
-        AddUser: {
-            $email: "test@gmail.com",
-            $password: "password"
-        }
     }
 }
 
 const outputFile = './swagger.json'
-// const endpointsFiles = ['./endpoints.js']
 const endpointsFiles = ['./routes/index.js']
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
