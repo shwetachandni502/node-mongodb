@@ -14,7 +14,7 @@ const doc = {
     produces: ['application/json'],
     tags: [
         {
-            "name": "All APIs",
+            "name": "User",
             "description": "Endpoints"
         }
     ],
@@ -37,8 +37,18 @@ const doc = {
     definitions: {
         User: {
             email: "test@gmail.com",
-            password: 'password',
+            password: "password",
         },
+        Provider: {
+            name: "provider 1",
+        },
+        AddUser: {
+            $email: "user@gmail.com",
+            $password: "user123",
+            providers: [
+                { id: 1 }
+            ],
+        }
     }
 }
 

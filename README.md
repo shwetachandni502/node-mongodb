@@ -17,11 +17,11 @@ Use the command below to start the project and generating updated swagger docume
 $ npm run swagger-autogen
 ```
 
-Run the project and access the documentation at:
+Run the project and access the documentation at: 
 
 [http://localhost:4000/api-docs](http://localhost:4000/api-docs)
 
 ## Screenshots
 See the result after construction:
 
-![](https://i.imgur.com/9GDw7xH.png)
+![](https://i.imgur.com/Xmg6erY.png)
