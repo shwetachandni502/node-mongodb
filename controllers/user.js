@@ -21,7 +21,6 @@ exports.getUser = async (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
-  console.log('req.profile from update data -->', req.profile)
   User.findByIdAndUpdate(
     { _id: req.profile._id },
     { $set: req.body },
